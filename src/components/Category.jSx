@@ -1,10 +1,10 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet,Text,TouchableOpacity } from "react-native";
 
 const Category=({item,selectedCategory,setSelectedCategory})=>{
     return(
         <>
         <TouchableOpacity onPress={()=>setSelectedCategory(item)}>
-            <Text style={[styles.trend,selectedCategory === item && {color:"#ffff", backgroundColor:'#E96E6E'}]}>{item}</Text>
+            <Text style={[styles.trend,selectedCategory === item && {color:"#ffff",backgroundColor:'#E96E6E'}]}>{item}</Text>
         </TouchableOpacity>
         </>
     )
