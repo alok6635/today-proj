@@ -1,17 +1,28 @@
-import { Image, StyleSheet, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import IconArrow from 'react-native-vector-icons/FontAwesome';
 
-const Header =()=>{
+
+const Header =({isCart})=>{
+    const navigation= useNavigation();
+
     return (
         <>
             <View style={styles.container}>
-                <View style={styles.appIconContainer}>
-                    <Image source={require('../assets/img/app_icon.png')} style={styles.appIcon} />
-                </View>
-                <Image source={require('../assets/img/dp.png')} style={styles.dp} />
+                <TouchableOpacity onPress={()=>navigation.navigate('HOME_STACK')} style={styles.appIconContainer}>
+                    {
+                        isCart? ( 
+                        <IconArrow  name={"chevron-left"} color={"#E96E6E"}/> 
+                    ) :
+                        <Image source={require('../assets/img/app_icon.png')} style={styles.appIcon}/>
+                    }
+                </TouchableOpacity>
+                <Image source={require('../assets/img/dp.png')} style={styles.dp}/>
             </View>
         </>
     )
 }
+
 export default Header;
 
 const styles = StyleSheet.create({
